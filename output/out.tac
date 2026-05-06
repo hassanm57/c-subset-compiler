@@ -12,31 +12,23 @@ func int main:
     x = 10
     y = 20
     z = 3.14
-    param x
-    param y
+    param 10
+    param 20
     t1 = call add, 2
     sum = t1
-    t2 = x + y
-    t3 = t2 * 2
-    t4 = t3 - 5
-    result = t4
-    t5 = 2 * 3
-    t6 = t5 + 4
-    constant = t6
-    t7 = x * 1
-    t8 = t7 + 0
-    identity = t8
-    t9 = z * z
-    area = t9
-    param sum
+    result = 55
+    constant = 10
+    identity = 10
+    area = 9.8596
+    param t1
     printf "sum = %d\n", 1 args
-    param result
+    param 55
     printf "result = %d\n", 1 args
-    param constant
+    param 10
     printf "constant = %d\n", 1 args
-    param identity
+    param 10
     printf "identity = %d\n", 1 args
-    param area
+    param 9.8596
     printf "area = %f\n", 1 args
     return 0
 end func main
