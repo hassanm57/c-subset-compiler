@@ -9,10 +9,10 @@ func int factorial:
 L0:
     t1 = n - 1
     sub = t1
-    param sub
+    param t1
     t2 = call factorial, 1
     rec = t2
-    t3 = n * rec
+    t3 = n * t2
     return t3
 end func factorial
 
@@ -45,23 +45,17 @@ L4:
 end func max
 
 func int main:
-    t9 = 4 * 5
-    t10 = t9 + 10
-    x = t10
-    t11 = x * 1
-    t12 = t11 + 0
-    y = t12
-    t13 = x + y
-    z = t13
-    param x
+    x = 30
+    y = 30
+    z = 60
+    param 30
     printf "x = %d\n", 1 args
-    param y
+    param 30
     printf "y = %d\n", 1 args
-    param z
+    param 60
     printf "z = %d\n", 1 args
     score = 73
-    t14 = score >= 90
-    if_false t14 goto L6
+    if_false 0 goto L6
     printf "Grade: A\n", 0 args
     goto L7
 L6:
@@ -87,7 +81,7 @@ L12:
     t18 = running_total + i
     running_total = t18
     param i
-    param running_total
+    param t18
     printf "Step %d: total = %d\n", 2 args
     t19 = i + 1
     i = t19
@@ -102,18 +96,18 @@ L13:
     param 5
     t20 = call sum_array, 2
     arr_sum = t20
-    param arr_sum
+    param t20
     printf "Array sum = %d\n", 1 args
     param 6
     t21 = call factorial, 1
     f = t21
-    param f
+    param t21
     printf "6! = %d\n", 1 args
-    param f
-    param arr_sum
+    param t21
+    param t20
     t22 = call max, 2
     bigger = t22
-    param bigger
+    param t22
     printf "max(6!, arr_sum) = %d\n", 1 args
     n = 1
 L14:
