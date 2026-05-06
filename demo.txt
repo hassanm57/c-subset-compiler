@@ -6,7 +6,8 @@
 .\compiler.exe -tac demo.c ---- shows code before optimization
 .compiler.exe -opt demo.c --- shows code after optimzation
 
-
+// btw
+compiler.exe -o myfile.tac demo.c // write output to any custom file
 
 USEFUL FLAGS:
 
