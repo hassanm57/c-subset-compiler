@@ -5,3 +5,11 @@
 
 .\compiler.exe -tac demo.c ---- shows code before optimization
 .compiler.exe -opt demo.c --- shows code after optimzation
+
+
+
+USEFUL FLAGS:
+
+do .\compiler.exe (any of the flags from above - skip these parantheses) <file-name>
+
+// take from any of the test files from tests folders.

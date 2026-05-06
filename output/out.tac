@@ -1,134 +1,172 @@
 
 ===== Three-Address Code (TAC) =====
 
-func int factorial:
-    param n : int
-    t0 = n <= 1
-    if_false t0 goto L0
-    return 1
-L0:
-    t1 = n - 1
-    sub = t1
-    param sub
-    t2 = call factorial, 1
-    rec = t2
-    t3 = n * rec
-    return t3
-end func factorial
-
-func int sum_array:
+func void bubble_sort:
     param arr : int
-    param size : int
-    total = 0
+    param n : int
     i = 0
+L0:
+    t0 = n - 1
+    t1 = i < t0
+    if_false t1 goto L1
+    j = 0
 L2:
-    t4 = i < size
+    t2 = n - i
+    t3 = t2 - 1
+    t4 = j < t3
     if_false t4 goto L3
     t5 = arr[t5]
-    t6 = total + t5
-    total = t6
-    t7 = i + 1
-    i = t7
+    t6 = j + 1
+    t7 = arr[t7]
+    t8 = t5 > t7
+    if_false t8 goto L4
+    t9 = arr[t9]
+    temp = t9
+    t10 = j + 1
+    t11 = arr[t11]
+    arr[j] = t11
+    t12 = j + 1
+    arr[t12] = temp
+L4:
+    t13 = j
+    j = j + 1
     goto L2
 L3:
-    return total
-end func sum_array
+    t14 = i
+    i = i + 1
+    goto L0
+L1:
+end func bubble_sort
 
-func int max:
-    param a : int
-    param b : int
-    t8 = a > b
-    if_false t8 goto L4
-    return a
-L4:
-    return b
-end func max
+func int array_sum:
+    param arr : int
+    param n : int
+    sum = 0
+    i = 0
+L6:
+    t15 = i < n
+    if_false t15 goto L7
+    t16 = arr[t16]
+    t17 = sum + t16
+    sum = t17
+    t18 = i
+    i = i + 1
+    goto L6
+L7:
+    return sum
+end func array_sum
+
+func int linear_search:
+    param arr : int
+    param n : int
+    param target : int
+    i = 0
+L8:
+    t19 = i < n
+    if_false t19 goto L9
+    t20 = arr[t20]
+    t21 = t20 == target
+    if_false t21 goto L10
+    return i
+L10:
+    t22 = i
+    i = i + 1
+    goto L8
+L9:
+    t23 = - t23
+    return t23
+end func linear_search
 
 func int main:
-    t9 = 4 * 5
-    t10 = t9 + 10
-    x = t10
-    t11 = x * 1
-    t12 = t11 + 0
-    y = t12
-    t13 = x + y
-    z = t13
-    param x
-    printf "x = %d\n", 1 args
-    param y
-    printf "y = %d\n", 1 args
-    param z
-    printf "z = %d\n", 1 args
-    score = 73
-    t14 = score >= 90
-    if_false t14 goto L6
-    printf "Grade: A\n", 0 args
-    goto L7
-L6:
-    t15 = score >= 80
-    if_false t15 goto L8
-    printf "Grade: B\n", 0 args
-    goto L9
-L8:
-    t16 = score >= 70
-    if_false t16 goto L10
-    printf "Grade: C\n", 0 args
-    goto L11
-L10:
-    printf "Grade: F\n", 0 args
-L11:
-L9:
-L7:
-    running_total = 0
-    i = 1
+    data[0] = 64
+    data[1] = 34
+    data[2] = 25
+    data[3] = 12
+    data[4] = 22
+    n = 5
+    printf "Before sort: ", 0 args
+    i = 0
 L12:
-    t17 = i <= 5
-    if_false t17 goto L13
-    t18 = running_total + i
-    running_total = t18
-    param i
-    param running_total
-    printf "Step %d: total = %d\n", 2 args
-    t19 = i + 1
-    i = t19
+    t24 = i < n
+    if_false t24 goto L13
+    t25 = data[t25]
+    param t25
+    printf "%d ", 1 args
+    t26 = i
+    i = i + 1
     goto L12
 L13:
-    nums[0] = 10
-    nums[1] = 20
-    nums[2] = 30
-    nums[3] = 40
-    nums[4] = 50
-    param nums
-    param 5
-    t20 = call sum_array, 2
-    arr_sum = t20
-    param arr_sum
-    printf "Array sum = %d\n", 1 args
-    param 6
-    t21 = call factorial, 1
-    f = t21
-    param f
-    printf "6! = %d\n", 1 args
-    param f
-    param arr_sum
-    t22 = call max, 2
-    bigger = t22
-    param bigger
-    printf "max(6!, arr_sum) = %d\n", 1 args
-    n = 1
+    printf "\n", 0 args
+    param data
+    param n
+    t27 = call bubble_sort, 2
+    printf "After sort:  ", 0 args
+    i = 0
 L14:
-    t23 = n <= 100
-    if_false t23 goto L15
-    t24 = n * n
-    t25 = t24 > 50
-    if_false t25 goto L16
-L16:
-    t26 = n + 1
-    n = t26
+    t28 = i < n
+    if_false t28 goto L15
+    t29 = data[t29]
+    param t29
+    printf "%d ", 1 args
+    t30 = i
+    i = i + 1
     goto L14
 L15:
+    printf "\n", 0 args
+    param data
     param n
-    printf "First n where n*n > 50: %d\n", 1 args
+    t31 = call array_sum, 2
+    param t31
+    printf "Sum = %d\n", 1 args
+    param data
+    param n
+    param 25
+    t32 = call linear_search, 3
+    idx = t32
+    param idx
+    printf "Search 25: index = %d\n", 1 args
+    scores[0] = 9.5
+    scores[1] = 8
+    scores[2] = 7.5
+    scores[3] = 6
+    total = 0
+    i = 0
+L16:
+    t33 = i < 4
+    if_false t33 goto L17
+    t34 = scores[t34]
+    t35 = total + t34
+    total = t35
+    t36 = i
+    i = i + 1
+    goto L16
+L17:
+    t37 = total / 4
+    param t37
+    printf "Average score: %f\n", 1 args
+    i = 0
+L18:
+    t38 = i < 9
+    if_false t38 goto L19
+    t39 = i * i
+    matrix[i] = t39
+    t40 = i
+    i = i + 1
+    goto L18
+L19:
+    printf "Squares: ", 0 args
+    i = 0
+L20:
+    t41 = i < 9
+    if_false t41 goto L21
+    t42 = matrix[t42]
+    param t42
+    printf "%d ", 1 args
+    t43 = i
+    i = i + 1
+    goto L20
+L21:
+    printf "\n", 0 args
     return 0
 end func main
 ====================================
