@@ -2,3 +2,6 @@
 .\compiler.exe -opt demo.c           ← show optimized TAC (cleaner, fewer steps)
 .\compiler.exe -ast demo.c           ← show the full syntax tree
 .\compiler.exe -sym demo.c           ← show symbol table with all names
+
+.\compiler.exe -tac demo.c ---- shows code before optimization
+.compiler.exe -opt demo.c --- shows code after optimzation
